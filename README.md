@@ -1,7 +1,7 @@
 react-native-naver-map [![npm version](https://badge.fury.io/js/react-native-nmap.svg)](https://badge.fury.io/js/react-native-nmap)
 -----
 
-네이버맵의 리액트 네이티브 브릿지입니다.
+네이버맵의 리액트 네이티브 브릿지입니다. (ScrollView와 함께 사용 할 때 지도 터치 이벤트를 제대로 이용 못하는 문제 수정)
 
 ![](https://raw.githubusercontent.com/QuadFlask/react-native-naver-map/master/example/screenshot/screenshot.png)
 
