@@ -1,6 +1,7 @@
 package com.github.quadflask.react.navermap;
 
 import android.graphics.PointF;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -53,6 +54,26 @@ public class RNNaverMapView extends MapView implements OnMapReadyCallback, Naver
                 themedReactContext.removeLifecycleEventListener(this);
             }
         });
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int action = event.getAction();
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                // Disallow ScrollView to intercept touch events.
+                this.getParent().requestDisallowInterceptTouchEvent(true);
+                break;
+
+            case MotionEvent.ACTION_UP:
+                // Allow ScrollView to intercept touch events.
+                this.getParent().requestDisallowInterceptTouchEvent(false);
+                break;
+        }
+
+        // Handle MapView's touch events.
+        super.onTouchEvent(event);
+        return true;
     }
 
     @Override
